@@ -1,7 +1,9 @@
 FROM alpine AS samples
 
-RUN apk add git && \
-    git clone --branch main --single-branch --depth 1 https://github.com/buildpacks/samples
+RUN apk add curl && \
+    curl -o samples.tar.gz -L https://github.com/buildpacks/samples/archive/refs/heads/main.tar.gz && \
+    tar -x -f samples.tar.gz -C / && \
+    rm samples.tar.gz
 
 FROM cnbs/sample-stack-build:bionic
 
@@ -9,9 +11,9 @@ USER root
 
 COPY --from=buildpacksio/lifecycle:0.11.1-linux /cnb/lifecycle/ /cnb/lifecycle
 
-COPY --from=samples /samples/buildpacks/java-maven/ /cnb/buildpacks/samples_java-maven/0.0.1
+COPY --from=samples /samples-main/buildpacks/java-maven/ /cnb/buildpacks/samples_java-maven/0.0.1
 
-COPY --from=samples /samples/apps/java-maven/ /workspace
+COPY --from=samples /samples-main/apps/java-maven/ /workspace
 
 RUN mkdir /layers /platform && \
     chown -R 1000:1000 /workspace && \
