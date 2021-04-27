@@ -13,7 +13,6 @@ RUN mkdir c:\layers c:\platform c:\workspace && \
 WORKDIR /layers
 
 ARG appImage
-ENV appImage=$appImage
 RUN c:\cnb\lifecycle\creator \
     -app=c:\workspace \
     %appImage%
