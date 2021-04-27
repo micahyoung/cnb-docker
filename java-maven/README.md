@@ -1,5 +1,5 @@
 # buildpacks/samples hello-world
-Loosely based on alpine sample builder: https://github.com/buildpacks/samples/blob/main/builders/alpine/builder.toml
+Loosely based on bionic sample builder: https://github.com/buildpacks/samples/blob/main/builders/bionic/builder.toml
 
 Usage:
 ```
