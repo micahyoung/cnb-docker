@@ -7,6 +7,7 @@ COPY --from=cnbs/sample-package:hello-world /cnb/buildpacks/samples_hello-world 
 USER root
 
 RUN mkdir /layers /platform /workspace && \
+    chown -R 1000:1000 /workspace && \
     echo 'order = [{ group = [{ id = "samples/hello-world", version = "0.0.1" }] }]' > /cnb/order.toml && \
     echo 'run-image = { image = "cnbs/sample-stack-run:alpine" }' > /cnb/stack.toml
 
