@@ -2,7 +2,7 @@ FROM cnbs/sample-stack-build:alpine
 
 COPY --from=buildpacksio/lifecycle:0.11.1-linux /cnb/lifecycle/ /cnb/lifecycle
 
-COPY --from=cnbs/sample-package:hello-world /cnb/buildpacks/samples_hello-world /cnb/buildpacks/samples_hello-world
+COPY --from=cnbs/sample-package:hello-world /cnb/buildpacks/samples_hello-world/0.0.1 /cnb/buildpacks/samples_hello-world/0.0.1
 
 USER root
 
