@@ -1,6 +1,7 @@
 FROM alpine AS samples
 
-RUN apk add git && git clone --branch main --single-branch --depth 1 https://github.com/buildpacks/samples
+RUN apk add git && \
+    git clone --branch main --single-branch --depth 1 https://github.com/buildpacks/samples
 
 FROM cnbs/sample-stack-build:bionic
 
