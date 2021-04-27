@@ -1,4 +1,4 @@
-# buildpacks/samples hello-world
+# buildpacks/samples java-maven
 Loosely based on bionic sample builder: https://github.com/buildpacks/samples/blob/main/builders/bionic/builder.toml
 
 Usage:
